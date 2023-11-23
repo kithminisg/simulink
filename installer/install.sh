@@ -27,4 +27,4 @@ fi
 echo "Found Sashimono $VERSION. Installing..."
 
 # Exucute the setup
-curl -fsSL $setup | cat | sudo bash -s install -i
+curl -fsSL $setup | cat | sudo bash -s ${@:3}
