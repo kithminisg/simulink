@@ -6,7 +6,7 @@
 # surrounding braces  are needed make the whole script to be buffered on client before execution.
 {
 
-export NETWORK="${NETWORK:-testnet}"
+export NETWORK="${NETWORK:-devent}"
 export NO_DOMAIN="${NO_DOMAIN:-0}"
 export SKIP_SYSREQ="${SKIP_SYSREQ:-0}"
 
