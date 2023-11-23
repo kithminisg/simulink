@@ -24,7 +24,7 @@ fi
 # Check if the release is found.
 [ -z "$setup" ] && echo "Sashimono $VERSION not found." && exit 1
 
-echo "Found Sashimono $VERSION. Installing..."
+echo "Found Sashimono $VERSION..."
 
 # Exucute the setup
-curl -fsSL $setup | cat | sudo bash -s ${@:3}
+curl -fsSL $setup | cat | sudo bash -s ${@}
