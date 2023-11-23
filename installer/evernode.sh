@@ -1,6 +1,10 @@
 #!/bin/bash
 # Evernode host latest version installer
 
+export NETWORK="${NETWORK:-devnet}"
+export NO_DOMAIN="${NO_DOMAIN:-0}"
+export SKIP_SYSREQ="${SKIP_SYSREQ:-0}"
+
 [ -z $VERSION ] && VERSION="latest"
 repository="https://api.github.com/repos/kithminisg/simulink/releases"
 
@@ -27,4 +31,9 @@ fi
 echo "Found Sashimono $VERSION..."
 
 # Exucute the setup
-curl -fsSL $setup | cat | sudo bash -s ${@}
+if [ -n "$NEW_GOVERNOR" ]; then
+    curl -fsSL $setup | cat | sudo OVERRIDE_EVERNODE_GOVERNOR_ADDRESS=$NEW_GOVERNOR NETWORK=$NETWORK NO_DOMAIN=$NO_DOMAIN SKIP_SYSREQ=$SKIP_SYSREQ bash -s ${@}
+else
+    curl -fsSL $setup | cat | sudo NETWORK=$NETWORK NO_DOMAIN=$NO_DOMAIN SKIP_SYSREQ=$SKIP_SYSREQ bash -s ${@}
+fi
+
