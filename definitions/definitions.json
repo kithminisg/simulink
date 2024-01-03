@@ -6,9 +6,15 @@
         "networkID": 21338
     },
     "devnet": {
-        "governorAddress": "raVhw4Q8FQr296jdaDLDfZ4JDhh7tFG7SF",
+        "governorAddress": "rwBigRmbdi4CwtdS9yV9f7YqaZbzVbnvrt",
         "rippledServer": "wss://hooks-testnet-v3.xrpl-labs.com",
         "stateIndexId": "evernodev3devindex",
         "networkID": 21338
+    },
+    "mainnet": {
+        "governorAddress": "",
+        "rippledServer": "wss://xahau.network",
+        "stateIndexId": "evernodev3devindex",
+        "networkID": 21337
     }
 }

@@ -1,8 +1,20 @@
 #!/bin/bash
 # Evernode host latest version installer
 
+# Check jq command is installed.
+if ! command -v jq &>/dev/null; then
+    echo "jq command not found. Installing.."
+    apt-get install -y jq >/dev/null
+fi
+
+# Check curl command is installed.
+if ! command -v curl &>/dev/null; then
+    echo "curl command not found. Installing.."
+    apt-get install -y curl >/dev/null
+fi
+
 [ -z $VERSION ] && VERSION="latest"
-repository="https://api.github.com/repos/kithminisg/simulink/releases"
+repository="https://api.github.com/repos/EvernodeXRPL/evernode-resources/releases"
 
 if [ "$VERSION" = "latest" ]; then
     release_data=$(curl -s "$repository/latest")
