@@ -19,14 +19,13 @@ mv "$SASHIMONO_BIN/$file" "$backup_file"
 
 echo "Updating the files.."
 
-response=$(curl -s -w "%{http_code}" "https://raw.githubusercontent.com/$repo_owner/$repo_name/updated-patch-kith/sashimono/patches/resources/sashimono/$file" -o "$SASHIMONO_BIN/$file")
+response=$(curl -s -w "%{http_code}" "https://raw.githubusercontent.com/$repo_owner/$repo_name/updated-patch/sashimono/patches/resources/sashimono/$file" -o "$SASHIMONO_BIN/$file")
 
 # Extract the HTTP status code
 http_status="${response: -3}"
 
 if [ "$http_status" -ne 200 ] || ! chmod +x "$SASHIMONO_BIN/$file"; then
     echo "Update failed. Restoring.."
-    echo "Testing cp -p $backup_file $SASHIMONO_BIN/$file"
     ! cp -p "$backup_file" "$SASHIMONO_BIN/$file" && echo "Restoring failed." && exit 1
     echo "Restored."
     exit 1
