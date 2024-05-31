@@ -26,7 +26,7 @@ http_status="${response: -3}"
 
 if [ "$http_status" -ne 200 ] || ! chmod +x "$SASHIMONO_BIN/$file"; then
     echo "Update failed. Restoring.."
-    ! cp "$backup_file" "$SASHIMONO_BIN/$file" && echo "Restoring failed." && exit 1
+    ! cp -p "$backup_file" "$SASHIMONO_BIN/$file" && echo "Restoring failed." && exit 1
     echo "Restored."
     exit 1
 fi
