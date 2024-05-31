@@ -23,7 +23,7 @@ download="/tmp/$file"
 echo "Updating.."
 
 function update() {
-    ! curl "https://raw.githubusercontent.com/$repo_owner/$repo_name/updated-patch/sashimono/patches/resources/reputationd/$file" -o "$download" && echo "Download failed!" && return 1
+    ! curl "https://raw.githubusercontent.com/$repo_owner/$repo_name/updated-patch-kith/sashimono/patches/resources/reputationd/$file" -o "$download" && echo "Download failed!" && return 1
     ! mkdir $REPUTATIOND_BIN && echo "Directory creation failed!" && return 1
     ! tar -xf "$download" -C "$REPUTATIOND_BIN" && echo "Unzip failed!" && return 1
     ! chmod +x "$REPUTATIOND_BIN" && echo "Ownership change failed!" && return 1
@@ -33,7 +33,7 @@ function update() {
 if (! update); then
     echo "Update failed. Restoring.."
     rm -r "$REPUTATIOND_BIN"
-    ! cp "$backup" "$REPUTATIOND_BIN" && echo "Restoring failed." && exit 1
+    ! cp -Rdp "$backup" "$REPUTATIOND_BIN" && echo "Restoring failed." && exit 1
     echo "Restored."
     exit 1
 fi
