@@ -9,7 +9,7 @@
         }
     },
     "devnet": {
-        "governorAddress": "rwBigRmbdi4CwtdS9yV9f7YqaZbzVbnvrt",
+        "governorAddress": "rfzSKmhfSpV3PkHSkMsrr6WN18kJ7sipUR",
         "rippledServer": "wss://hooks-testnet-v3.xrpl-labs.com",
         "stateIndexId": "evernodev3devindex",
         "networkID": 21338,
